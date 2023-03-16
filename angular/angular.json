@@ -1,0 +1,181 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": false
+  },
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "GRC": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/GRC",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [  
+			  
+				"vendor/fontawesome/css/font-awesome.css",
+				"vendor/metisMenu/dist/metisMenu.css",
+				"vendor/animate.css/animate.css",
+				"vendor/bootstrap/dist/css/bootstrap.css",
+				"vendor/datatables.net-bs/css/dataTables.bootstrap.min.css",
+				
+				"vendor/fooTable/css/footable.core.min.css",   
+				"vendor/select2-3.5.2/select2.css",
+				"vendor/select2-bootstrap/select2-bootstrap.css",
+				"vendor/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css", 
+				"vendor/sweetalert/lib/sweet-alert.css",
+				"vendor/bootstrap-datepicker-master/dist/css/bootstrap-datepicker3.min.css",
+				"vendor/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css",  
+				
+				"src/fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css",
+				"src/fonts/pe-icon-7-stroke/css/helper.css",   
+				"node_modules/sweetalert2/src/sweetalert2.scss",  
+				
+				"vendor/diagram/tree.css",
+				"src/styles/style.css",   
+            ],
+            "scripts": [ 
+		
+				"vendor/jquery/dist/jquery.min.js",	 
+
+				"vendor/bootstrap/dist/js/bootstrap.min.js", 
+				"vendor/jquery-ui/jquery-ui.min.js",	 
+				"vendor/metisMenu/dist/metisMenu.min.js",
+				"vendor/iCheck/icheck.min.js",  
+				"vendor/peity/jquery.peity.min.js",
+				"vendor/sparkline/index.js",  
+				"vendor/datatables/media/js/jquery.dataTables.min.js",
+				"vendor/datatables.net-bs/js/dataTables.bootstrap.min.js", 
+				"vendor/pdfmake/build/pdfmake.min.js",
+				"vendor/pdfmake/build/vfs_fonts.js",
+				"vendor/fooTable/dist/footable.all.min.js",  
+				"vendor/moment/moment.js",
+				"vendor/select2-3.5.2/select2.min.js",
+				"vendor/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js",
+				"vendor/bootstrap-datepicker-master/dist/js/bootstrap-datepicker.min.js",
+				"vendor/clockpicker/dist/bootstrap-clockpicker.min.js",
+				"vendor/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js", 
+				
+				"vendor/jquery-flot/jquery.flot.js",
+				"vendor/jquery-flot/jquery.flot.resize.js",
+				"vendor/jquery-flot/jquery.flot.pie.js",
+				"vendor/flot.curvedlines/curvedLines.js",
+				"vendor/jquery.flot.spline/index.js",  
+				"vendor/slimScroll/jquery.slimscroll.min.js",
+				
+				"src/scripts/homer.js", 	
+				"src/scripts/charts.js", 
+			
+				 
+ 
+			]
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "GRC:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "GRC:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "GRC:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "src/test.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.spec.json",
+            "karmaConfig": "karma.conf.js",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "tsconfig.app.json",
+              "tsconfig.spec.json",
+              "e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "e2e/protractor.conf.js",
+            "devServerTarget": "GRC:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "GRC:serve:production"
+            }
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "GRC"
+}
