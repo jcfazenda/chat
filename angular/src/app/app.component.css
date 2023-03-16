@@ -1,0 +1,340 @@
+.imageedit{
+  margin-right: -3% !important;
+  margin-top: -20% !important;
+  width: 60% !important;
+  float: right !important;
+}
+
+.subtit{
+  color: #444444 !important;
+  font-size: 22px !important;
+  width: 40% !important;
+}
+
+.texttit{
+  color: #000000 !important;
+  width: 45% !important;
+  font-size: 16px !important;
+  margin-top: 2% !important;
+  text-align: justify !important;
+}
+
+.enftit{
+  color: #6C0000 !important;
+  font-weight: 500 !important;
+}
+
+.btngrc{
+  background-color: #600000 !important;
+  height: 33px !important;
+  border-radius: 5px !important;
+  color: #fff !important;
+}
+
+.btnText{
+  font-size: 15px !important;
+  margin-top: -5px !important;
+  margin-left: 0 !important;
+  color: #fff !important;
+}
+
+.btnEgrc{
+  float: right !important;
+  margin-top: 2% !important;
+  font-size: 16px !important;
+}
+
+.btnVoltar{
+  background: #999999 !important;
+  color: #FFFFFF !important;
+  border-radius: 5px !important;
+}
+
+.btnRegistrar{
+  border: #CCCCCC;
+  border-style: solid;
+  border-radius: 5px !important;
+  color: #444444;
+}
+
+.btnSoliciteDv{
+  width: 100% !important;
+  text-align: left !important;
+  margin-top: 5% !important;
+}
+
+.btnSoliciteDiv{
+  width: 100% !important;
+  text-align: center !important;
+  margin-top: 5% !important;
+}
+
+.btnNews{
+  background-color: #8B0000 !important;
+  border-radius: 13px !important;
+  font-size: 16px !important;
+  font-weight: bold !important;
+  font-family:montserrat,sans-serif !important;
+  width: 43% !important;
+  height: 50px !important;
+  margin-top: 6% !important;
+  margin-left: 30% !important;
+  margin-right: 30% !important;
+}
+
+.btnDropdwn{
+  border: none !important;
+  border-radius: 50% !important;
+  margin: 0px !important;
+  padding: 0px !important;
+  background-color: transparent !important;
+}
+
+.btnDropImg{
+  border-radius: 50% !important;
+  width: 50px !important;
+  margin-top: -15px !important;
+}
+
+.btnDropText{
+  background-color: transparent !important;
+  font-size: 14px !important;
+  margin-left: 10px !important;
+  line-height: 50px !important;
+}
+
+.navb{
+  float: left !important;
+  margin-top: 1% !important;
+  margin-left: 10% !important;
+}
+
+.navbLogo{
+  float: left !important;
+  margin: 3px !important;
+}
+
+.faleCon{
+  overflow: hidden !important;
+  background-color: #fff !important;
+  vertical-align: top !important;
+  width: 100% !important;
+  height: 860px !important;
+}
+
+.fndHome{
+  background-image: url(/assets/images/landing/header.jpg) !important;
+  background-position: center !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  background-attachment: fixed !important;
+}
+
+.fndPolicy{
+  background-image: url(/assets/images/landing/imgFndPolicy.jpg) !important;
+  background-position: center !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  background-attachment: fixed !important;
+}
+
+.fndContact{
+  background-image: url(/assets/images/landing/imgFndContact.jpg) !important;
+  background-position: center !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  background-attachment: fixed !important;
+}
+
+.fndEspecial{
+  background-image: url(/assets/images/landing/imgFndEgrc.png) !important;
+  background-position: center !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  background-attachment: fixed !important;
+}
+
+.fndFooter{
+  background: #DFDFDF;
+}
+
+.margCopyright{
+  margin-bottom: 3%;
+}
+
+.mrgCtto{
+  margin-top: 10.35% !important;
+}
+
+.titSubPages{
+  color: #444444 !important;
+  margin-top: 250px !important;
+}
+
+.defineP{
+  font-size: 15px !important;
+  text-align: justify !important;
+}
+
+.parag{
+  font-family:montserrat,sans-serif;
+  line-height: 25px !important;
+  padding-top: 15px;
+  padding-left: 3%;
+  font-size: 17px;
+  text-align: justify;
+  color: #444444;
+}
+
+.linha{
+  font-family:montserrat,sans-serif;
+  text-indent: 1%;
+  margin-left: 5%;
+  padding-top: 10px;
+  font-size: 17px;
+  text-align: justify;
+  color: #666666;
+}
+
+.contactorg{
+  margin-left: 10%;
+  font-size: 16px;
+  font-family:montserrat,sans-serif;
+  font-weight:bold
+}
+
+.contactorgPNome{
+  line-height:30px !important;
+  font-size: 20px;
+}
+
+.contactorgP{
+  line-height:10px !important;
+}
+
+.maps{
+  position: static !important;
+  width: 100% !important;
+  height: 450px !important;
+  margin-left: 25% !important;
+  margin-right: 25% !important;
+  margin-top: 2% !important;
+  text-align: center !important;
+}
+
+.divMaps{
+  overflow: hidden;
+  background-color: #fff !important;
+  vertical-align: top !important;
+  width: 100% !important;
+  height: 450px !important;
+  margin-left: -25%;
+ }
+
+.h1Address{
+  font-size:18px !important;
+  line-height:1.4em !important;
+  text-align:center !important;
+  font-family:montserrat,sans-serif !important;
+}
+
+.titLocaliza{
+  font-size:26px !important;
+  text-align:center !important;
+  font-family:montserrat,sans-serif !important;
+}
+
+.icoUser{
+  font-size: 35px !important;
+  vertical-align: middle !important;
+}
+
+@media screen and (max-width:800px){
+  .imageedit{
+    display:none !important;
+  }
+
+  .subtit{
+    color: #000000 !important;
+    font-size: 22px !important;
+    width: 40% !important;
+  }
+
+  .texttit{
+    color: #000000 !important;
+    width: 100% !important;
+    font-size: 16px !important;
+    text-align: center !important;
+  }
+
+  .btngrc{
+    width: 100% !important;
+    height: 32px !important;
+    background-color: #600000 !important;
+    border-radius: 5px !important;
+  }
+
+  .btnText{
+    font-size: 13px !important;
+    margin-top: -5px !important;
+    margin-left: -5px !important;
+    color: #fff !important;
+  }
+
+  .btnEgrc{
+    margin-right: 30% !important;
+    margin-top: 15px !important;
+    font-size: 16px !important;
+  }
+
+  .btnSoliciteDiv{
+    width: 80% !important;
+    margin-left: 10%;
+    text-align: center !important;
+    margin-top: 5% !important;
+  }
+
+  .btnSoliciteDv{
+    width: 80% !important;
+    margin-left: 10%;
+    text-align: center !important;
+    margin-top: 5% !important;
+  }
+
+  .defineP{
+    font-size: 13px !important;
+    text-align: justify !important;
+  }
+
+  .fndPolicy{
+    display:none;
+  }
+
+  .fndContact{
+    display:none;
+  }
+
+  .mgEnftit{
+    margin-top: 40px !important;
+  }
+
+  .maps{
+    position: static !important;
+    width: 300px !important;
+    height: 445px !important;
+    margin-left: 0 !important;
+    margin-top: 2% !important;
+    text-align: center !important;
+  }
+
+  .divMaps{
+    overflow: hidden;
+    background-color: #fff !important;
+    vertical-align: top !important;
+    width: 100% !important;
+    height: 450px !important;
+    margin-left: 0;
+   }
+
+
+}

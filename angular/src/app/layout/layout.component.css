@@ -1,0 +1,16 @@
+.DeepPink { color: rgb(255,20,147); }
+.RoyalBlue { color: rgb(65,105,225); }
+.SteelBlue { color: rgb(70,130,180); }
+.DarkTurquoise { color: rgb(0,206,209); }
+.Olive { color: rgb(128,128,0); }
+.Chocolate { color: rgb(210,105,30); }
+.DarkMagenta { color: rgb(139,0,139); }
+.Goldenrod { color: rgb(218,165,32); }
+
+.imgIco{
+  width: 80px !important;
+}
+
+.imgIcom{
+  width: 50px !important;
+}

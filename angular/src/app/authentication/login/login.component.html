@@ -1,0 +1,290 @@
+<div *ngIf="Current == 'login' "> 
+
+    <!-- Simple splash screen-->
+    <div class="splash">
+        <div class="color-line"></div>
+        <div class="splash-title">
+            <h1>Homer - Responsive Admin Theme</h1>
+            <p>Special Admin Theme for small and medium webapp with very clean and aesthetic style and feel. </p>
+            <div class="spinner">
+                <div class="rect1"></div>
+                <div class="rect2"></div>
+                <div class="rect3"></div>
+                <div class="rect4"></div>
+                <div class="rect5"></div>
+            </div>
+        </div>
+    </div>
+    <!--[if lt IE 7]>
+    <p class="alert alert-danger">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    
+    <div class="color-line"></div>
+     
+    
+    <div class="login-container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="text-center m-b-md">
+                    <h3>LOGAR NO APP</h3>
+                    <small>Será uma honra!.</small>
+                </div>
+                <div class="hpanel">
+                    <div class="panel-body">
+     
+                        <form fxLayout="column" name="form" [formGroup]="form">
+    
+                            <div class="form-group">
+                                <label class="control-label" for="username">Username</label>
+                                <input type="text" placeholder="example@gmail.com" title="Please enter you username"
+                                    required="" formControlName="usuario_Email" class="form-control">
+                                <span class="help-block small">Seu nome de usuário exclusivo para o aplicativo</span>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" for="password">Password</label>
+                                <input type="password" title="Please enter your password" placeholder="******" required=""  formControlName="usuario_Senha" class="form-control"> 
+                            </div> 
+
+                            <button class="btn btn-success btn-block" (click)="Encrypt()">Entrar</button>
+                            <a class="btn btn-default btn-block"  (click)="NewUser()">Registrar-se</a>
+    
+                        </form>
+    
+    
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <strong>GRC</strong> - Gestão de Riscos | 2021 Copyright GRC
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div *ngIf="Current == 'recover' "> 
+
+    <div class="register-container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="text-center m-b-md">
+                    <h3>Mudança de Senha</h3>
+                    <small>Considere mudar sua senha. </small>
+                    <p>enviaremos para seu celular um cod. no qual esperamos que seja usado para conectar-se.</p>
+                </div>
+                <div class="hpanel">
+                    <div class="panel-body">
+
+                        <form fxLayout="column" name="form" [formGroup]="form">
+
+                                <div class="row"> 
+
+
+                                    <div class="form-group col-lg-12">
+                                        <label>Usuário</label>
+                                        <h4>{{Email}}</h4>
+                                    </div>
+                                    <div class="form-group col-lg-6">
+                                        <label>Senha</label>
+                                        <input type="password"  class="form-control" formControlName="usuario_Senha_recover">
+                                    </div>
+                                    <div class="form-group col-lg-6">
+                                        <label>Repetir Senha</label>
+                                        <input type="password"  class="form-control" formControlName="usuario_Senha_confirm_recover">
+                                    </div>
+                                    <div class="form-group col-lg-6">
+                                        <label>Cód.</label>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" formControlName="usuario_Codigo_Senha">
+                                             <span class="input-group-btn" (click)="Encrypt()">
+                                                <button type="button" class="btn btn-primary"> <i class="fa fa-refresh"></i> </button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-lg-6"> 
+ 
+                                    </div>
+
+                                    <div class="form-group col-lg-12"> 
+                                        <h6 class="text-warning">{{Message}}</h6>
+                                        <p> <i class="fa fa-clock-o text-warning"> </i> 00:00</p>
+                                    </div> 
+
+                                </div>
+
+                                <div class="form-group col-lg-12">
+                                    <hr>
+                                </div>
+
+                                <div class="text-center">
+                                    <button class="btn btn-success"  (click)="UpdatePassword()">Salvar</button> &nbsp; 
+                                    <button class="btn btn-default"  (click)="Cancel()">Cancelar</button>
+                                </div>
+
+                            </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <strong>GRC</strong> - Gestão de Riscos | 2021 Copyright GRC
+            </div>
+        </div>
+    </div>
+         
+</div>
+
+
+<div *ngIf="Current == 'CreateUser' "> 
+
+    <div class="register-container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="text-center m-b-md">
+                    <h3>Registro</h3>
+                    <small>Será uma honra atendê-lo </small>
+                    <p>enviaremos para seu celular um cod. no qual esperamos que seja usado para conectar-se.</p>
+                </div>
+                <div class="hpanel">
+                    <div class="panel-body">
+
+                        <form fxLayout="column" name="form" [formGroup]="form">
+
+                            <div class="row">
+
+                                <div class="form-group col-lg-6">
+                                    <h5>Como quer ser chamado?</h5>
+                                    <input type="text" placeholder="..." title="Please enter you empresa" required="" formControlName="cliente_Nome" class="form-control">
+                                </div>
+
+                                <div class="form-group col-lg-6"> 
+                                   
+                                    <h5>Cód. da Indicação</h5>
+                                    <div class="input-group"> 
+                                         <span class="input-group-btn">
+                                            <button type="button" class="btn btn-default"> <i class="fa fa-key"></i> </button>
+                                        </span>
+                                        <input type="text" class="form-control" placeholder="GRC000000?" formControlName="cliente_Codigo_Indicacao">
+                                    </div>
+
+                                </div>
+                                
+                                <div class="form-group col-lg-12">
+                                    <hr>
+                                </div> 
+
+                            </div>
+
+                            <div class="row">
+
+                                    <div class="form-group col-lg-12">
+                                        <label>Usuário</label>
+                                        <input type="text" placeholder="example@gmail.com" title="Please enter you username" required="" formControlName="usuario_Email" class="form-control">
+                                    </div>
+                                    <div class="form-group col-lg-6">
+                                        <label>Senha</label>
+                                        <input type="password"  class="form-control" formControlName="usuario_Senha">
+                                    </div>
+                                    <div class="form-group col-lg-6">
+                                        <label>Repetir Senha</label>
+                                        <input type="password"  class="form-control" formControlName="usuario_Senha_Confirm">
+                                    </div>
+
+                                    <div class="col-md-12"> 
+                                        <hr>
+                                    </div> 
+
+                                    <div class="col-md-12"> 
+                                        <br>
+                                    </div>
+
+                                    <div class="col-md-3">   
+                                        <div class="form-group">
+                                            <label class="control-label" for="usuario_Senha">Cod País</label>
+                                            <input type="text" title="informe o dogigo do psais"  [textMask]="{mask: mascaraDDD}"  placeholder="00"  required formControlName="usuarioContato_Ddr" [(ngModel)]="_usuarioContato.ddr" class="form-control">
+                                            <span class="help-block small">País da Linha</span>
+                                        </div> 
+                                    </div>
+                                    <div class="col-md-3">   
+                                        <div class="form-group">
+                                            <label class="control-label" for="usuario_Senha">DDD</label>
+                                            <input type="text" title="informe um ddd celular"  [textMask]="{mask: mascaraDDD}"  placeholder="00"  required formControlName="usuarioContato_Ddd" [(ngModel)]="_usuarioContato.ddd" class="form-control">
+                                            <span class="help-block small">Código da Cidade</span>
+                                        </div> 
+                                    </div> 
+                                    <div class="col-md-6">   
+                                        <div class="form-group">
+                                            <label class="control-label" for="usuario_Senha">Telefone</label>
+                                            <input type="text" title="informe um telefone celular"  [textMask]="{mask: mascaraTelefone}"  placeholder="(00) 0 0000-0000"  required formControlName="usuarioContato_Telefone" [(ngModel)]="_usuarioContato.telefone" class="form-control">
+                                            <span class="help-block small"></span>
+                                        </div> 
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group col-lg-12">
+                                    <hr>
+                                </div>
+
+                                <div class="text-center">
+                                    <button class="btn btn-info"     (click)="Registrar()">Registrar</button> &nbsp; 
+                                    <button class="btn btn-default"  (click)="Cancel()">Cancelar</button>
+                                </div>
+
+                            </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <strong>GRC</strong> - Gestão de Riscos | 2021 Copyright GRC
+            </div>
+        </div>
+    </div> 
+
+</div>
+
+<div *ngIf="Current == 'WaitDataBase' "> 
+
+    <div class="register-container">
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="text-center">
+                    <h3>Configurando o Sistema</h3>
+                    <small>Será uma honra atendê-lo. </small> <p></p>
+                    <small>Nossos administradores estão preparando uma base de dados só para você.</small> 
+                </div> 
+
+            </div>
+
+            <div class="col-md-12">
+
+                <br><br>
+                <div class="text-center">
+                    <button class="btn btn-info" (click)="Cancel()">Home</button> 
+                </div>
+            </div>
+ 
+
+        </div>
+
+        <div class="form-group col-lg-12">
+            <hr>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <strong>GRC</strong> - Gestão de Riscos | 2021 Copyright GRC
+            </div>
+        </div>
+    </div> 
+
+</div>

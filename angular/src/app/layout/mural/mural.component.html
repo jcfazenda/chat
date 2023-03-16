@@ -1,0 +1,63 @@
+
+<!-- Skin option / for demo purpose only -->
+
+<style>
+  .skin-option { position: fixed; text-align: center; right: -1px; padding: 10px; top: 80px; width: 150px; height: 133px; text-transform: uppercase; background-color: #ffffff; box-shadow: 0 1px 10px rgba(0, 0, 0, 0.05), 0 1px 4px rgba(0, 0, 0, .1); border-radius: 4px 0 0 4px; z-index: 100; }
+</style>
+<script>
+  setInterval(function(){ $('#demo-star').toggleClass('text-success'); }, 300)
+</script>
+<!-- End skin option / for demo purpose only -->
+
+<!-- Main Wrapper -->
+<div id="wrapper">
+
+  <div class="content animate-panel">
+    <div class="content animate-panel">
+
+      <!-- Mural -->
+      <div class="row">
+  
+          <div class="col-lg-3">
+            <div class="hpanel stats">
+              <div class="panel-body h-100">
+                <div class="stats-title pull-left">
+  
+                  <a [routerLink]="['/chat']">
+                    <h4 class="text-danger">ChatGPT</h4>
+                  </a>
+  
+                <small>Integração com API</small>
+                </div>
+                <div class="stats-icon pull-right">
+                  <a [routerLink]="['/chat']">  <i class="pe-7s-graph3 fa-4x"></i> </a>
+                </div>
+              </div>
+  
+            </div>
+          </div> 
+  
+          <div class="col-lg-3">
+            <div class="hpanel stats">
+              <div class="panel-body h-100">
+                <div class="stats-title pull-left">
+  
+                  <a [routerLink]="['/decision']">
+                    <h4 class="text-danger">Desicion</h4>
+                  </a>
+  
+                <small>Fluxo de Decisão</small>
+                </div>
+                <div class="stats-icon pull-right">
+                  <a [routerLink]="['/decision']">  <i class="pe-7s-keypad fa-4x"></i> </a>
+                </div>
+              </div>
+  
+            </div>
+          </div>
+     
+      </div> 
+   
+  
+    </div> 
+</div>

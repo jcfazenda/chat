@@ -1,0 +1,584 @@
+
+<!-- Main Wrapper -->
+<div id="wrapper">
+
+    <div class="small-header ">
+        <div class="hpanel">
+            <div class="panel-body"> 
+                
+                <div id="hbreadcrumb" class="pull-right m-t-lg">
+                    <ol class="hbreadcrumb breadcrumb">
+                        <li>
+                            <a   [routerLink]="['/mural']" >{{'labels.mural' | translate}}</a>
+                        </li>  
+                        <li class="active">
+                            <span>{{'labels.telas' | translate}}</span>
+                        </li>
+                    </ol>
+                </div>
+                <h2 class="font-light m-b-xs">
+                    {{'labels.telas' | translate}}
+                </h2>
+                <small>...</small>
+            </div>
+        </div>
+    </div>  
+
+    <div *ngIf="FuncoesConfig.length > 0"> 
+
+        <div class="content">
+            
+            <div class="row" *ngIf="State == 'View' ">     
+
+                <!-- funçoes --> 
+                <div class="col-lg-12">  
+
+                    <ul class="nav nav-tabs">                   
+
+                        <li (click)="SetPagePosicion()"  class="active"><a data-toggle="tab" href="#tab-1">{{'labels.funcionalidade_telas' | translate}} </a></li> 
+                        <li (click)="SetPagePosicion()"  class=""><a data-toggle="tab" href="#tab-2">{{'labels.telas_sistema' | translate}}</a></li>  
+                        
+                    </ul>
+                    <div class="tab-content">    
+
+                        <div id="tab-1" class="tab-pane active">
+
+                            <div class="hpanel"> 
+
+                                <div class="panel-body">  
+    
+                                        <div>
+                                            <div class="panel-title">{{'labels.funcoes' | translate}}</div>
+                                            <small class="fo">{{'labels.funcoes_disponiveis_perfil_acesso' | translate}}</small>
+                                        </div> 
+                
+                                        <div class="col-lg-12">  <hr> </div> 
+
+                                        <!-- Buttons Telas -->  
+    
+                                        <div class="col-lg-2 float-e-margins"  *ngFor="let tela of ListTela" >  
+                                            <button (click)="SetPagePosicion()" type="button" class="btn w-xs  btn-sm btn-info "    style="width: 100%;" *ngIf="tela.checked == true"  (click)="CheckTelaButton(tela)">   {{tela.tela_Nome}} </button> 
+                                            <button (click)="SetPagePosicion()" type="button" class="btn w-xs  btn-sm btn-default " style="width: 100%;" *ngIf="tela.checked == false" (click)="CheckTelaButton(tela)">{{tela.tela_Nome}} </button>   
+                                        </div>                                     
+
+                                        <div class="col-lg-12">   <hr> </div> 
+
+
+                                        <!-- FUNÇÕES -->  
+
+                                        <div class="col-lg-8 border-right " *ngIf="ListTelaFuncao.length > 0">  
+                                            
+                                            <div class="panel-title">{{'labels.funcoes' | translate}}</div> 
+                        
+                                            <div class="col-lg-12"> <br> </div>  
+                
+                                            <table  class="table table-striped  table-hover"> 
+                                                <tbody>
+                                                    <tr *ngFor="let item of ListTelaFuncao  | paginate: {  id: 'pagFuncao',  itemsPerPage: 7, currentPage: PagePosition, totalItems: ListTelaFuncao.length }" [ngClass]="(item.fl_Ativo == false)?'text-danger':'text-muted'">
+                            
+                                                        <td style="width: 2px;" *ngIf="FuncoesConfig[14].visible" >
+                                                            <input type="checkbox" class="i-checks" checked *ngIf="item.class == 'btn-info' "    (click)="SaveNivelAcessoTelaFuncao(item.id_Tela_Funcao)"  >
+                                                            <input type="checkbox" class="i-checks"         *ngIf="item.class == 'btn-default' " (click)="SaveNivelAcessoTelaFuncao(item.id_Tela_Funcao)"  > 
+                                                            <input type="checkbox" class="i-checks"         *ngIf="item.class == null " (click)="SaveNivelAcessoTelaFuncao(item.id_Tela_Funcao)"  > 
+                                                        </td> 
+                                                        <td> {{item.codigo}} - {{item.tela_Funcao_Nome}}</td>   
+                                                        <td style="width: 2px;">
+                            
+                                                            <div class="btn-group pull-right">
+                            
+                                                                <a data-toggle="dropdown" class="dropdown-toggle"> <i class="fa fa-ellipsis-v"></i> </a>
+                                                                <ul class="dropdown-menu">
+                                                                    
+                                                                    <li *ngIf="FuncoesConfig[9].visible" (click)="UpdateFuncao('Editar', item)"  data-toggle="modal" data-target="#modalEditFuncao"><a > <i class="fa fa-pencil"></i> {{'labels.editar' | translate}}</a></li>    
+                            
+                                                                    <li  *ngIf="FuncoesConfig[10].visible" data-toggle="modal" data-target="#modalWarning" (click)="SetItemFuncao(item)">
+                                                                        <a *ngIf="item.fl_Ativo == false" > <i class="fa fa-bell"></i> {{'labels.ativar' | translate}}</a>
+                                                                        <a *ngIf="item.fl_Ativo == true"  > <i class="fa fa-bell-slash-o"></i> {{'labels.inativar' | translate}}</a>
+                                                                    </li>
+                             
+                                                                    <li *ngIf="FuncoesConfig[10].visible" data-toggle="modal" data-target="#modalDanger" (click)="SetItemFuncao(item)">
+                                                                        <a > <i class="fa fa-trash-o"></i> {{'labels.excluir' | translate}}</a>
+                                                                    </li> 
+                            
+                                                                </ul>
+                                                            </div> 
+                            
+                                                        </td>
+                    
+                                                    </tr> 
+                                                </tbody>   
+                                            </table>   
+                
+                                            <div>
+
+                                                <div class="pull-right">
+                                                    <pagination-controls id="pagFuncao" class="text-right my-pagination" 
+                                                                        autoHide="false" 
+                                                                        maxSize="5" 
+                                                                        directionLinks="true" 
+                                                                        responsive="true"
+                                                                        previousLabel="Anterior" nextLabel="Próxima" (pageChange)="PagePosition = $event"></pagination-controls>
+                                                </div>
+
+                                                <div class="pull-left">
+                                                    <div>{{'labels.registros_encontrados' | translate}}: &nbsp; <b> {{ListTelaFuncao.length}}</b></div> 
+                                                </div>
+
+                                            </div> 
+
+                                        </div>
+
+
+                                        <!-- niveis de acesso -->  
+
+                                        <div class="col-lg-4" *ngIf="ListTelaFuncao.length > 0">
+    
+                                            <div class="panel-title">{{'labels.niveis_acesso' | translate}}</div> 
+                    
+                                            <div class="col-lg-12"> <br> </div>
+                    
+                                            <table  class="table table-striped  table-hover"> 
+                                                <tbody>
+                                                    <tr *ngFor="let item of ListNivelAcesso" [ngClass]="(item.fl_Ativo == false)?'text-danger':'text-muted'">
+                            
+                                                        <td> <a   (click)="SetNivelAcesso(item)" > <i class="fa fa-anchor"></i> &nbsp; {{item.nivel_Acesso_Nome}} </a> </td>  
+                                                        <td >
+                                                        <a  (click)="SetNivelAcesso(item)" > <span class="label label-success pull-right" *ngIf="_nivel.id_Nivel_Acesso == item.id_Nivel_Acesso"  >{{'labels.selecionado' | translate}}</span> </a>
+                                                        </td>
+                                                        <td style="width: 2px;">
+                            
+                                                            <div class="btn-group pull-right">
+                            
+                                                                <a data-toggle="dropdown" class="dropdown-toggle"> <i class="fa fa-ellipsis-v"></i> </a>
+                                                                <ul class="dropdown-menu">
+                                                                    
+                                                                    <li  *ngIf="FuncoesConfig[5].visible" (click)="UpdateNivel('Editar', item)"  data-toggle="modal" data-target="#modalEditNivel"><a > <i class="fa fa-pencil"></i> {{'labels.editar' | translate}}</a></li>   
+                            
+                                                                    <li   *ngIf="FuncoesConfig[7].visible" data-toggle="modal" data-target="#modalWarning" (click)="SetItemNivel(item)">
+                                                                        <a  *ngIf="item.fl_Ativo == true" > <i class="fa fa-bell-slash-o"></i> {{'labels.ativar' | translate}}</a>
+                                                                        <a  *ngIf="item.fl_Ativo == false" > <i class="fa fa-bell-slash-o"></i> {{'labels.inativar' | translate}}</a>
+                                                                    </li> 
+
+                                                                    <li class="divider"></li>
+
+                                                                    <li  *ngIf="FuncoesConfig[6].visible" data-toggle="modal" data-target="#modalDanger" (click)="SetItemNivel(item)">
+                                                                        <a > <i class="fa fa-trash-o"></i> {{'labels.excluir' | translate}}</a>
+                                                                    </li> 
+                            
+                                                                </ul>
+                                                            </div> 
+                            
+                                                        </td>
+                    
+                                                    </tr> 
+                                                </tbody> 
+                                            </table>  
+                
+                                        </div>                                         
+
+                                        <div class="col-lg-12">  <hr> </div> 
+
+                                        <div *ngIf="_input.id_Tela > 0"> 
+
+                                            <div class="col-lg-2 float-e-margins pull-right"  *ngIf="FuncoesConfig[4].visible" >   
+
+                                                        <button type="button" class="btn w-xs  btn-sm btn-warning2 "    
+                                                            style="width: 100%;"
+                                                            (click)="UpdateNivel('Cadastrar', null)"  data-toggle="modal" data-target="#modalEditNivel" > {{'botoes.bt_criar_nivel' | translate}} </button>                                                  
+                                            </div>   
+                                            
+                                            <div class="col-lg-2 float-e-margins pull-right"  *ngIf="FuncoesConfig[8].visible" >  
+                                                <button type="button" class="btn w-xs  btn-sm btn-warning "    
+                                                        style="width: 100%;"
+                                                        (click)="UpdateFuncao('Cadastrar', null)"  data-toggle="modal" data-target="#modalEditFuncao" > {{'botoes.bt_criar_funcao' | translate}} </button>                                              
+                                            </div>                                     
+                                        
+                                        </div>
+
+                                </div>
+
+                            </div>
+
+                        </div> 
+
+                        <div id="tab-2" class="tab-pane ">
+
+                            <div class="hpanel">   
+                                <div class="panel-body">  
+                    
+                                    <div class="form-group"> 
+            
+                                        <div class="float-e-margins pull-right" *ngIf="FuncoesConfig[0].visible"> 
+                                            <button class="btn btn-default " type="button"  (click)="UpdateItem('Cadastrar', null)"  data-toggle="modal" data-target="#modalEdit"><i class="fa fa-plus-circle" ></i> </button> 
+                                        </div>
+            
+                                        <div class="panel-title">{{'labels.telas_sistema' | translate}}</div>
+                                        <small class="fo">{{'labels.telas_sistema_descricao' | translate}}</small>
+            
+                                        <div class="col-md-12"> <hr>  </div> 
+                    
+                                    </div>  
+                                    
+                                    <div class="radio" *ngFor="let item of Status">
+                                        <label (change)="onChangeStatus(item.active)"> 
+                                            <input type="radio" checked="item.isChecked" value="option1" id="optionsRadios1" name="optionsRadios"> 
+                                                {{item.name}}  
+                                        </label> 
+                                    </div>  
+                    
+                                    <!-- telas  --> 
+                                    <table id="example2" class="table table-striped  table-hover"  *ngIf="this.UsuarioLogado.id_Nivel_Acesso === 1"> 
+                                        <tbody>
+                                            <tr *ngFor="let item of ListTela | paginate: { id: 'pageTela', itemsPerPage: 10, currentPage: PagePosition, totalItems: ListTela.length }">
+                    
+                                                <td>{{item.tela_Nome}}</td>  
+
+                                                <td>
+                                                    <span class="label label-success pull-right"  *ngIf="item.fl_Ativo == true" >{{item.tela_Url}}</span> 
+                                                    <span class="label label-warning pull-right"  *ngIf="item.fl_Ativo == false" >{{item.tela_Url}}</span> 
+                                                </td> 
+                                                <td style="width: 2px;">
+                    
+                                                    <div class="btn-group pull-right">
+                    
+                                                        <a data-toggle="dropdown" class="dropdown-toggle"> <i class="fa fa-ellipsis-v"></i> </a>
+                                                        <ul class="dropdown-menu">
+                                                            
+                                                            <li *ngIf="FuncoesConfig[0].visible"  (click)="UpdateItem('Editar', item)"  data-toggle="modal" data-target="#modalEdit"><a > <i class="fa fa-pencil"></i> {{'labels.editar' | translate}}</a></li>   
+                    
+                                                            <li *ngIf="FuncoesConfig[15].visible" data-toggle="modal" data-target="#modalWarning" (click)="SetItem(item)">
+                                                                <a *ngIf="item.fl_Ativo == true" > <i class="fa fa-bell-slash-o"></i> {{'labels.inativar' | translate}}</a>
+                                                                <a *ngIf="item.fl_Ativo == false" > <i class="fa fa-bell-bell"></i> {{'labels.ativar' | translate}}</a>
+                                                            </li>  
+
+                                                            <li *ngIf="FuncoesConfig[16].visible" (click)="EditItemTemplateEmail('Template Email', item)"  data-toggle="modal" data-target="#modalEditTemplate"><a > <i class="fa fa-envelope-o"></i> {{'labels.template_email' | translate}}</a></li> 
+            
+                                                            <li class="divider"></li>
+                                                            
+                                                            <li *ngIf="FuncoesConfig[1].visible" data-toggle="modal" data-target="#modalDanger" (click)="SetItem(item)">
+                                                                <a > <i class="fa fa-trash-o"></i> {{'labels.excluir' | translate}}</a>
+                                                            </li> 
+                    
+                                                        </ul>
+                                                    </div> 
+                    
+                                                </td>
+            
+                                            </tr> 
+                                        </tbody> 
+                                        
+                                    </table> 
+
+                                    <div>
+
+                                        <div class="col-md-12"> <hr>  </div> 
+
+                                        <div class="pull-right">
+                                            <pagination-controls id="pageTela" class="text-right my-pagination" 
+                                                                autoHide="false" 
+                                                                maxSize="5" 
+                                                                directionLinks="true" 
+                                                                responsive="true"
+                                                                previousLabel="Anterior" nextLabel="Próxima" (pageChange)="PagePosition = $event"></pagination-controls>
+                                        </div>
+
+                                        <div class="pull-left">
+                                            <div> {{'labels.registros_encontrados' | translate}}: &nbsp; <b> {{ListTela.length}}</b></div> 
+                                        </div>
+
+                                    </div>  
+                    
+                                </div>       
+                            </div>
+
+                        </div>   
+
+                    </div> 
+
+                </div>   
+
+            </div>
+    
+    
+        </div> 
+        
+
+
+        <!-- <ODALS> --> 
+        <div class="modal fade hmodal-warning" id="modalWarning" tabindex="-1" role="dialog"  aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="color-line"></div>
+                    <div class="modal-header">
+                        <h4 class="modal-title">{{'labels.modal_warning_label' | translate}}</h4>
+                        <small class="font-bold">{{'labels.modal_warning_descricao' | translate}}.</small>
+                    </div>
+                    <div class="modal-body">
+                        <p>{{'labels.modal_warning_informacao' | translate}}</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">{{'botoes.btn_fechar' | translate}}</button>  
+                        <button type="button" class="btn btn-primary"  data-dismiss="modal" (click)="Confirm('UpdateStatus')" >{{'botoes.btn_confirma' | translate}}</button>                
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade hmodal-danger" id="modalDanger" tabindex="-1" role="dialog"  aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="color-line"></div>
+                    <div class="modal-header">
+                        <h4 class="modal-title">{{'labels.modal_danger_label' | translate}}</h4>
+                        <small class="font-bold">{{'labels.modal_danger_descricao' | translate}}</small>
+                    </div>
+                    <div class="modal-body">
+                        <p>{{'labels.modal_danger_informacao' | translate}}	</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">{{'botoes.btn_fechar' | translate}}</button> 
+                        <button type="button" class="btn btn-primary"  data-dismiss="modal" (click)="Confirm('Remove')">{{'botoes.btn_confirma' | translate}}</button>
+
+                    </div>
+                </div>
+            </div>
+        </div> 
+
+        <!-- EditarTemplate--> 
+        <div class="modal fade" id="modalEditTemplate" tabindex="-1" role="dialog"  aria-hidden="true">
+
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="color-line"></div>
+            
+                    <div class="modal-header">
+                        <h3 *ngIf="_templateEmail.tela">{{_templateEmail.tela.tela_Nome}}</h3>
+                        {{'labels.template_envio_email' | translate}}
+                    </div>
+                    <div class="modal-body">
+            
+                        <form fxLayout="column" name="form" [formGroup]="form" >     
+
+                                <div class="btn-group pull-right">
+        
+                                </div>  
+                                <div class="media clearfix">  
+            
+                                    <a class="pull-left" > 
+                                        <i class="fa fa-envelope-o fa-lg text-warning "></i> 
+                                    </a>
+                                    <div class="media-body">
+                                        <small>{{'labels.funcionalidade' | translate}}: <span class="font-bold"><b>{{'labels.funcionalidade_descricao' | translate}}</b></span> </small>
+                                        <br />
+                                        <small class="text-muted">21.03.2015, 06:45 pm</small>
+                                    </div>
+                                </div> 
+                            
+                            <hr> 
+
+                                <div class="media-body">
+                                    <small>{{'labels.evento' | translate}}: <span class="font-bold"><b>{{'labels.ocorreu_uma_atualizacao' | translate}}</b></span> </small> 
+                                    <br />
+                                    <small>{{'labels.executor' | translate}}: <span class="font-bold text-warning">{{'labels.joao_ninguem' | translate}}</span> </small>
+                                    <br>
+                                    <small>{{'labels.registro' | translate}}: <span class="font-bold text-info">{{'labels.nome_registro_afetado' | translate}}</span> </small> 
+                                </div>
+                                
+                                <br>   
+
+                                <angular-editor [placeholder]="'texto...'" 
+                                                formControlName="texto" 
+                                                [(ngModel)]="_templateEmail.texto"
+                                                [config]="EditConfig"></angular-editor>     
+
+                                <p><br></p>
+
+                                <p> <a href="blog_details.html" class="btn btn-warning btn-xs" *ngIf="_templateEmail.tela" >http: {{'labels.visualizar_registro_tela' | translate}} {{_templateEmail.tela.tela_Nome}}</a> </p>
+
+                                <hr>
+
+                                <b>Att</b>
+                            
+                                <div class="media-body">
+                                    <p> <span class="font-bold">{{'labels.joao_ninguem_silva' | translate}}</span> </p>
+                                    <i class="fa fa-envelope-o "></i> joao.ninguem@grc.com.br 
+                                    <p> <i class="fa fa-phone"></i> <a href="#"> (00) 0 0000-0000</a></p>
+                                </div> 
+            
+                        </form>
+            
+                    </div>
+                    <div class="modal-footer">  
+                        <button type="button" class="btn btn-default" data-dismiss="modal">{{'botoes.btn_fechar' | translate}}</button>
+                        <button type="button" class="btn btn-primary"  (click)="SaveTemplate()" data-dismiss="modal">{{'botoes.btn_salvar' | translate}}</button>
+                    </div>
+                </div>
+            </div>  
+
+        </div>
+
+        <!-- Editar --> 
+        <div class="modal fade" id="modalEdit" tabindex="-1" role="dialog"  aria-hidden="true">
+
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="color-line"></div>
+            
+                    <div class="modal-header">
+                        <h4 class="modal-title">{{Type}}</h4>
+                        <small class="font-bold">...</small>
+                    </div>
+                    <div class="modal-body">  
+
+                        <form fxLayout="column" name="form" [formGroup]="form">   
+                
+                            <div class="panel-body"> 
+                                
+                                <div class="col-md-6">
+                                    <h6> {{'labels.nome' | translate}}</h6>   
+                                    <input type="text" placeholder="nome..." class="form-control"  formControlName="tela_Nome" [(ngModel)]="_input.tela_Nome">
+                                </div>    
+                                <div class="col-md-6">
+                                    <h6> URL</h6>   
+                                    <input type="text" placeholder="informe o nome..." class="form-control"  formControlName="tela_Url" [(ngModel)]="_input.tela_Url">
+                                </div>   
+
+                            </div>   
+
+                        </form> 
+            
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="Save()">Salvar</button>
+                    </div>
+                </div>
+            </div>  
+
+        </div>
+
+        <!-- Editar  Funcao --> 
+        <div class="modal fade" id="modalEditFuncao" tabindex="-1" role="dialog"  aria-hidden="true"  >
+
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="color-line"></div>
+            
+                    <div class="modal-header">
+                        <h4 class="modal-title" *ngIf="Type == 'Cadastrar' ">{{'labels.cadastrar' | translate}} {{'labels.funcao' | translate}}</h4> 
+                        <h4 class="modal-title" *ngIf="Type == 'Editar' ">{{'labels.editar' | translate}} {{'labels.funcao' | translate}}</h4> 
+
+                    </div>
+                    <div class="modal-body">  
+
+                        <form fxLayout="column" name="form" [formGroup]="form">   
+                
+                            <div class="panel-body"> 
+                                
+                                <div class="col-md-6">
+                                    <h6> {{'labels.nome' | translate}}</h6>   
+                                    <input type="text" placeholder="nome..." class="form-control"  formControlName="tela_Funcao_Nome" [(ngModel)]="_funcao.tela_Funcao_Nome">
+                                </div>    
+                                <div class="col-md-6">
+                                    <h6> {{'labels.codigo_acao' | translate}}</h6>   
+                                    <input type="text" placeholder="cod. de ativação do nível de acesso" class="form-control"  formControlName="tela_Funcao_Codigo" [(ngModel)]="_funcao.tela_Funcao_Codigo">
+                                </div>   
+
+                            </div>   
+
+                            <div class="panel-body"> </div>  
+
+                            <!-- telas --> 
+                            <table id="example2" class="table table-striped  table-hover" *ngIf="FuncoesConfig[12].visible"> 
+                                <tbody>
+                                    <tr *ngFor="let item of ListTela | paginate: {  id: 'pagTelaPopUp',  itemsPerPage: 8, currentPage: PagePupUpPosition, totalItems: ListTela.length }">
+            
+                                        <td style="width: 2px;">        
+                                            <input type="checkbox" class="i-checks" checked *ngIf="item.checked == true"    (click)="ChekedFuncaoTela(item)">
+                                            <input type="checkbox" class="i-checks"         *ngIf="item.checked == false"   (click)="ChekedFuncaoTela(item)">        
+                                        </td>
+
+                                        <td>{{item.tela_Nome}}</td> 
+                                        <td>
+                                            <span class="label label-success pull-right"  *ngIf="item.fl_Ativo == true" > {{'labels.ativo' | translate}}</span> 
+                                            <span class="label label-warning pull-right"  *ngIf="item.fl_Ativo == false" > {{'labels.inativo' | translate}}</span> 
+                                        </td> 
+
+                                    </tr> 
+                                </tbody>
+                            </table>        
+                            
+                            <div class="col-lg-12">   <hr> </div>
+
+                            <div>
+
+                                <div class="pull-right">
+                                    <pagination-controls id="pagTelaPopUp" class="text-right my-pagination" 
+                                                        autoHide="false" 
+                                                        maxSize="5" 
+                                                        directionLinks="true" 
+                                                        responsive="true"
+                                                        previousLabel="Anterior" nextLabel="Próxima" (pageChange)="PagePupUpPosition = $event"></pagination-controls>
+                                </div>
+
+                                <div class="pull-left">
+                                    <div> {{'labels.registros_encontrados' | translate}}: &nbsp; <b> {{ListTela.length}}</b></div> 
+                                </div>
+
+                            </div> 
+
+                            <div class="panel-body"> </div> 
+
+                        </form> 
+            
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">{{'botoes.btn_fechar' | translate}}</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="SaveFuncao()">{{'botoes.btn_salvar' | translate}}</button>
+                    </div>
+                </div>
+            </div>  
+
+        </div>
+
+        <!-- Editar  Nivel --> 
+        <div class="modal fade" id="modalEditNivel" tabindex="-1" role="dialog"  aria-hidden="true">
+
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="color-line"></div>
+            
+                    <div class="modal-header">
+                        <h4 class="modal-title">{{'labels.nivel_acesso' | translate}}</h4>
+                        <small class="font-bold">...</small>
+                    </div>
+                    <div class="modal-body">  
+
+                        <form fxLayout="column" name="form" [formGroup]="form">   
+                
+                            <div class="panel-body"> 
+                                
+                                <div class="col-md-6">
+                                    <h6> {{'labels.nome' | translate}}</h6>   
+                                    
+                                    <input type="text" placeholder="nome..." class="form-control"  formControlName="nivel_Acesso_Nome" [(ngModel)]="_nivel.nivel_Acesso_Nome"> 
+
+                                </div>     
+
+                            </div>   
+
+                        </form> 
+            
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">{{'botoes.btn_fechar' | translate}}</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="SaveNivel()">{{'botoes.btn_salvar' | translate}}</button>
+                    </div>
+                </div>
+            </div>  
+
+        </div>
+
+    </div>
+    
+</div> 
+     

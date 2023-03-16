@@ -1,0 +1,64 @@
+
+    <!-- Right sidebar -->
+    <div id="right-sidebar" class="animated fadeInRight right-sidebar-toggle" >
+
+        <div >
+
+       
+            <div class="p-m">
+                <button id="sidebar-close" class="right-sidebar-toggle sidebar-button btn btn-default m-b-md"><i class="pe pe-7s-close"></i> </button>   
+
+                <div class="text-center"> 
+                    <a > <img src="assets/images/profile-default.png" class="img-circle m-b" alt="logo">  </a>
+                    
+                    <div class="float-e-margins ">  
+                        <a class="btn btn-default"  ><i class="fa fa-linkedin-square  fa-lg"></i></a>   &nbsp;
+                        <a class="btn btn-default"  ><i class="fa fa-facebook-square  fa-lg"></i></a>    &nbsp;
+                        <a class="btn btn-default"  ><i class="fa fa-twitter-square fa-lg"></i></a>    
+                    </div>    
+                    <div>
+                        <h5><b>{{Usuario.usuario_Nome}} {{Usuario.usuario_Sobrenome}}</b></h5>
+                        <small>{{Usuario.usuario_Email}}</small>                    
+                    </div> 
+
+                    <div class="col-sm-12">  <br> </div>
+                    
+                    <div class="float-e-margins " >  
+                        <a (click)="switchLang('pt')"     id="sidebar-close" class="right-sidebar-toggle m-b-md" > <img src="assets/images/bandeiras/brazil.png" class="img-circle m-b" alt="logo">  </a> &nbsp;
+                        <a (click)="switchLang('fr')"     id="sidebar-close" class="right-sidebar-toggle m-b-md" > <img src="assets/images/bandeiras/france.png" class="img-circle m-b" alt="logo">  </a> &nbsp;
+                        <a (click)="switchLang('en-US')"  id="sidebar-close" class="right-sidebar-toggle m-b-md" > <img src="assets/images/bandeiras/united-states.png" class="img-circle m-b" alt="logo">  </a> &nbsp;
+                    </div>  
+
+                </div>             
+                
+            </div> 
+    
+            <!-- Colaboradores -->
+            <div class="p-m">
+ 
+                
+            </div> 
+
+
+            <!-- buttons -->
+            <div class="p-m bg-light border-bottom border-top"> 
+
+                <div class="col-sm-12 text-center">  
+                    <div class="float-e-margins">  
+                        <a class="btn w-xs btn-warning2"  (click)="Goto('login')" ><i class="fa fa-plug "></i>  DESLOGAR DO SISTEMA</a> 
+                    </div>  
+                </div> 
+    
+                <div class="m-t-md">
+                    <br>
+                </div>
+
+            </div>
+
+            <div class="p-m"> 
+
+            </div>
+        
+        </div>
+
+    </div>
