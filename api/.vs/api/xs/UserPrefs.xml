@@ -1,0 +1,42 @@
+﻿<Properties NuGet.AddPackagesDialog.IncludePrerelease="True" StartupConfiguration="{9B2CB332-1CAA-49CB-99EF-85AADAFE00D9}|Default">
+  <MultiItemStartupConfigurations>
+    <MultiItemSolutionRunConfiguration Id="api" Name="api">
+      <Items>
+        <StartupItem ItemId="{9B2CB332-1CAA-49CB-99EF-85AADAFE00D9}" ItemName="api" ConfigurationId="Default" />
+      </Items>
+    </MultiItemSolutionRunConfiguration>
+  </MultiItemStartupConfigurations>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.rabbit PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <DisabledProjects>
+    <String>../rabbit/cliente/cliente.csproj</String>
+  </DisabledProjects>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/jbarbozo/Downloads/Projetos/chat/api/api/api/Controllers/Generics/GenericsController.cs" relfile="api/Controllers/Generics/GenericsController.cs" line="448" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workbench>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="api" expanded="True">
+            <Node name="api" expanded="True">
+              <Node name="Domain" expanded="True">
+                <Node name="Repository" expanded="True">
+                  <Node name="Interface" expanded="True">
+                    <Node name="Message" expanded="True" />
+                  </Node>
+                </Node>
+                <Node name="Tenant" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.api PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <Debugger.DebugSourceFolders />
+</Properties>
