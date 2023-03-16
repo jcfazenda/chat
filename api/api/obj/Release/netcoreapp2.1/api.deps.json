@@ -30,7 +30,6 @@
         "dependencies": {
           "AutoMapper": "8.0.0",
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "6.0.0",
-          "Correios.CEP.Net": "1.1.6",
           "Microsoft.AspNet.SignalR": "2.4.1",
           "Microsoft.AspNet.SignalR.Core": "2.4.1",
           "Microsoft.AspNet.SignalR.JS": "2.4.1",
@@ -45,6 +44,7 @@
           "SendGrid": "9.22.0",
           "Swashbuckle.AspNetCore": "6.2.3",
           "System.Security.Cryptography.Encoding": "4.3.0",
+          "System.Security.Cryptography.OpenSsl": "6.0.0-preview.4.21253.7",
           "System.ServiceModel.Http": "4.5.3",
           "System.ServiceModel.NetTcp": "4.5.3",
           "System.ServiceModel.Security": "4.5.3"
@@ -84,17 +84,6 @@
         },
         "compile": {
           "lib/netstandard2.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll": {}
-        }
-      },
-      "Correios.CEP.Net/1.1.6": {
-        "runtime": {
-          "lib/Correios.Net.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
-        },
-        "compile": {
-          "lib/Correios.Net.dll": {}
         }
       },
       "jQuery/1.6.4": {},
@@ -569,11 +558,30 @@
         "runtime": {
           "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.dll": {
             "assemblyVersion": "4.0.5.0",
-            "fileVersion": "4.700.19.46214"
+            "fileVersion": "4.0.0.0"
           }
         },
         "compile": {
           "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
+        }
+      },
+      "System.Security.Cryptography.OpenSsl/6.0.0-preview.4.21253.7": {
+        "runtime": {
+          "lib/netcoreapp2.1/System.Security.Cryptography.OpenSsl.dll": {
+            "assemblyVersion": "4.1.1.1",
+            "fileVersion": "4.6.27415.1"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/unix/lib/netcoreapp2.1/System.Security.Cryptography.OpenSsl.dll": {
+            "rid": "unix",
+            "assetType": "runtime",
+            "assemblyVersion": "4.1.1.1",
+            "fileVersion": "4.6.27415.1"
+          }
+        },
+        "compile": {
+          "ref/netcoreapp2.1/System.Security.Cryptography.OpenSsl.dll": {}
         }
       },
       "System.ServiceModel.Http/4.5.3": {
@@ -3100,7 +3108,7 @@
           "System.Runtime.InteropServices": "4.3.0",
           "System.Security.Cryptography.Algorithms": "4.3.0",
           "System.Security.Cryptography.Encoding": "4.3.0",
-          "System.Security.Cryptography.OpenSsl": "4.3.0",
+          "System.Security.Cryptography.OpenSsl": "6.0.0-preview.4.21253.7",
           "System.Security.Cryptography.Primitives": "4.3.0",
           "System.Security.Cryptography.X509Certificates": "4.3.0",
           "System.Text.Encoding": "4.3.0",
@@ -3399,24 +3407,6 @@
         },
         "compileOnly": true
       },
-      "System.Security.Cryptography.OpenSsl/4.3.0": {
-        "dependencies": {
-          "System.Collections": "4.3.0",
-          "System.IO": "4.3.0",
-          "System.Resources.ResourceManager": "4.3.0",
-          "System.Runtime": "4.3.0",
-          "System.Runtime.Extensions": "4.3.0",
-          "System.Runtime.Handles": "4.3.0",
-          "System.Runtime.InteropServices": "4.3.0",
-          "System.Runtime.Numerics": "4.3.0",
-          "System.Security.Cryptography.Algorithms": "4.3.0",
-          "System.Security.Cryptography.Encoding": "4.3.0",
-          "System.Security.Cryptography.Primitives": "4.3.0",
-          "System.Text.Encoding": "4.3.0",
-          "runtime.native.System.Security.Cryptography.OpenSsl": "4.3.0"
-        },
-        "compileOnly": true
-      },
       "System.Security.Cryptography.Pkcs/4.5.0": {
         "dependencies": {
           "System.Security.Cryptography.Cng": "4.5.0"
@@ -3455,7 +3445,7 @@
           "System.Security.Cryptography.Cng": "4.5.0",
           "System.Security.Cryptography.Csp": "4.3.0",
           "System.Security.Cryptography.Encoding": "4.3.0",
-          "System.Security.Cryptography.OpenSsl": "4.3.0",
+          "System.Security.Cryptography.OpenSsl": "6.0.0-preview.4.21253.7",
           "System.Security.Cryptography.Primitives": "4.3.0",
           "System.Text.Encoding": "4.3.0",
           "System.Threading": "4.3.0",
@@ -3703,13 +3693,6 @@
       "sha512": "sha512-njWYKGM3FokOlo9nj8kVLYyvJrGbLItmNA2A00lDXJnxybfP7TuZEYjQRt8ne+Cp0OF4W0ZzgdgxMioHfDEpdA==",
       "path": "automapper.extensions.microsoft.dependencyinjection/6.0.0",
       "hashPath": "automapper.extensions.microsoft.dependencyinjection.6.0.0.nupkg.sha512"
-    },
-    "Correios.CEP.Net/1.1.6": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-5xiGLVdvGxlG5SnOYHusZnAyveuxVQaqTkW002iV7sFeWZlhzxaUUE/ghjhnr+dh6ic+HauYnY9zGcg74fzH2Q==",
-      "path": "correios.cep.net/1.1.6",
-      "hashPath": "correios.cep.net.1.1.6.nupkg.sha512"
     },
     "jQuery/1.6.4": {
       "type": "package",
@@ -3990,6 +3973,13 @@
       "sha512": "sha512-HxozeSlipUK7dAroTYwIcGwKDeOVpQnJlpVaOkBz7CM4TsE5b/tKlQBZecTjh6FzcSbxndYaxxpsBMz+wMJeyw==",
       "path": "system.runtime.compilerservices.unsafe/4.6.0",
       "hashPath": "system.runtime.compilerservices.unsafe.4.6.0.nupkg.sha512"
+    },
+    "System.Security.Cryptography.OpenSsl/6.0.0-preview.4.21253.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Ly177w95qM1XbFf4ShKXfgy2TqsOCg5HcdTh/sfxmKXHMZWlDuCavk6c1AC7omHzOc+j9GKqU1/6EfhRNEIF+g==",
+      "path": "system.security.cryptography.openssl/6.0.0-preview.4.21253.7",
+      "hashPath": "system.security.cryptography.openssl.6.0.0-preview.4.21253.7.nupkg.sha512"
     },
     "System.ServiceModel.Http/4.5.3": {
       "type": "package",
@@ -5705,13 +5695,6 @@
       "sha512": "sha512-1DEWjZZly9ae9C79vFwqaO5kaOlI5q+3/55ohmq/7dpDyDfc8lYe7YVxJUZ5MF/NtbkRjwFRo14yM4OEo9EmDw==",
       "path": "system.security.cryptography.encoding/4.3.0",
       "hashPath": "system.security.cryptography.encoding.4.3.0.nupkg.sha512"
-    },
-    "System.Security.Cryptography.OpenSsl/4.3.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-h4CEgOgv5PKVF/HwaHzJRiVboL2THYCou97zpmhjghx5frc7fIvlkY1jL+lnIQyChrJDMNEXS6r7byGif8Cy4w==",
-      "path": "system.security.cryptography.openssl/4.3.0",
-      "hashPath": "system.security.cryptography.openssl.4.3.0.nupkg.sha512"
     },
     "System.Security.Cryptography.Pkcs/4.5.0": {
       "type": "package",
