@@ -11,7 +11,7 @@ import { LayoutComponent } from '../layout/layout.component';
 import { ChatComponent } from '../cadastros/chat/chat.component';    
 import { MuralComponent } from '../layout/mural/mural.component'; 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { DecisionComponent } from '../cadastros/decision/decision.component';
+import { WhisperComponent } from '../cadastros/whisper/whisper.component';
 
 const routes: Routes = [
 
@@ -29,7 +29,7 @@ const routes: Routes = [
 
       { path: 'cadastros',        component: CadastrosComponent }, 
       { path: 'chat',             component: ChatComponent },   
-      { path: 'decision',         component: DecisionComponent },  
+      { path: 'whisper',         component: WhisperComponent },  
     ]
   }
 ]

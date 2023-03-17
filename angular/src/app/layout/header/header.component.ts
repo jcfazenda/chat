@@ -55,8 +55,8 @@ export class HeaderComponent implements OnInit {
   
       /* idle */
       /* quanto tempo eles podem ficar inativos antes de serem considerados inativos, em segundos */  
-      idle.setIdle(300);  
-      idle.setTimeout(10);  
+      idle.setIdle(900);  
+      idle.setTimeout(20);  
       idle.setInterrupts(DEFAULT_INTERRUPTSOURCES); // provide sources that will "interrupt" aka provide events indicating the user is active
 
       this.idle.onIdleEnd.subscribe(() => (this.idleState = "")); /* não está mais ocioso. */

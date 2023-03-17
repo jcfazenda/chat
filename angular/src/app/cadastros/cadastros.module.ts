@@ -7,7 +7,7 @@ import { MatFormFieldModule} from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';   
 
 import { CadastrosComponent } from './cadastros.component';  
-import { DecisionComponent } from './decision/decision.component';
+import { WhisperComponent } from './whisper/whisper.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 
 /* Translate */ 
@@ -37,7 +37,7 @@ const routes: Routes = [
 @NgModule({
     declarations: [
         CadastrosComponent,  
-        DecisionComponent, 
+        WhisperComponent, 
     ],
     imports     : [ 
         HttpClientModule,

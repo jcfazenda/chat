@@ -112,15 +112,15 @@ export class AppComponent implements OnInit {
            data.data.usuario_Senha = '';
            
            this._usuario = data.data;
-           this.Current  = 'chat';
+           this.Current  = 'mural';
            
            data.data.id_Usuario_Tenant = data.data.id_Usuario;
            data.data.id_Nivel_Acesso   = 1;
             
-           this.storageService.SetCurrent('chat');
+           this.storageService.SetCurrent('mural');
            this.storageService.setUser(data.data); 
 
-           this.router.navigate(['/chat']); 
+           this.router.navigate(['/mural']); 
       }
 
     }, error => { });

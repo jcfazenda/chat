@@ -1,0 +1,101 @@
+ 
+<!-- Main Wrapper -->
+<div id="wrapper">
+
+    <div class="content small-header ">
+        <div class="hpanel">
+            <div class="panel-body"> 
+                
+                <div id="hbreadcrumb" class="pull-right m-t-lg">
+                    <ol class="hbreadcrumb breadcrumb">
+                        <li>
+                            <a [routerLink]="['/mural']"> <span>Home</span></a>
+                        </li> 
+                        <li>
+                            <a [routerLink]="['/chat']"> <span>Chat</span></a>
+                        </li>
+                        <li class="active">
+                            <a [routerLink]="['/whisper']">  <span>whisper</span></a>
+                        </li>
+                    </ol>
+                </div>
+                <h2 class="font-light m-b-xs">
+                    Speech-To-Text
+                </h2>
+                <small>API ChatGPT Whisper</small>
+            </div>
+        </div>
+    </div>       
+
+    <div class="content">   
+
+        <div class="hpanel" >
+            
+            <div class="panel-body">
+
+                <div class="col-md-8">  
+
+                    <form fxLayout="column" name="form" [formGroup]="form">
+
+                        <div class="col-md-12">
+                            <h1 class="pull-left text-danger " id="headline">Whisper open.AI</h1>
+                        </div>
+                        
+
+                        <div class="col-md-12"> <p class="pull-right">clique no microphone</p>    </div>
+                        <div class="col-md-12"><br></div>
+
+                        <div class="col-md-12">
+
+                            <div class="pull-right" *ngIf="selectDialeto == true">
+
+                                <button id="start_button" (click)="startService()" *ngIf="start == false">
+                                <img src="./../../../assets/mic.gif" alt="Start">
+                                </button>
+
+                                <button id="start_button" (click)="stopService()" *ngIf="start == true">
+                                <img src="./../../../assets/mic-animate.gif" alt="Start">
+                                </button>
+
+                            </div>
+
+                            <!-- texto -->
+                            <div id="results">
+                                <span id="final_span" class="final">{{ service.text }}</span>
+                                <span id="interim_span" class="interim"></span>
+                                <p>
+                            </div> 
+
+                        </div>
+
+                        <div class="col-md-12"><br><br></div>
+
+                        <div class="col-md-4">
+                            <div><b>Idioma</b> <br></div>
+                            <div class="col-md-4"></div>
+                            <select class="form-control" formControlName="select_language" (change)="GetDialeto()" >    
+                                <option [value]="option.value" [ngValue]="option[0]" [selected]="option.selected" *ngFor="let option of langs"> <a>{{option[0]}}</a>  </option>     
+                            </select>
+                        </div>
+
+                        <div class="col-md-2"  *ngIf="ListDialeto.length > 0" >
+                            <div><b>Dialeto</b> <br></div>
+                            <div class="col-md-4"></div>
+                            <select class="form-control" formControlName="select_dialeto" (change)="SetDialeto()">    
+                                <option [value]="option.id" [selected]="option.selected" *ngFor="let option of ListDialeto"> <a>{{option.dialeto}}</a>  </option>     
+                            </select>
+                        </div>
+
+
+
+                    </form>
+
+                </div> 
+    
+            </div> 
+
+        </div>  
+
+    </div> 
+       
+</div>

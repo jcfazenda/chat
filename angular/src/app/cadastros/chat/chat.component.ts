@@ -50,6 +50,8 @@ export class ChatComponent implements OnInit {
 
       this.ListBot            = [];
       this.ListMessage        = [];
+ 
+
 
   }    
 
@@ -166,7 +168,6 @@ export class ChatComponent implements OnInit {
       }
 
 
-    }
-
+    } 
 
 }

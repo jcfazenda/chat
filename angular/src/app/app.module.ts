@@ -38,7 +38,7 @@ import { NgIdleModule } from "@ng-idle/core";
 import { AngularEditorModule } from '@kolkov/angular-editor'; 
 import { TextMaskModule } from 'angular2-text-mask';
 import { ChatComponent } from './cadastros/chat/chat.component'; 
-import { DecisionComponent } from './cadastros/decision/decision.component';
+import { WhisperComponent } from './cadastros/whisper/whisper.component';
 
 export function HttploaderFactory (http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -55,7 +55,7 @@ export function HttploaderFactory (http: HttpClient) {
     LoginComponent,  
     MuralComponent,
     ChatComponent,
-    DecisionComponent
+    WhisperComponent
   ],
   imports: [ 
     

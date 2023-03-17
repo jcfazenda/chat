@@ -9,13 +9,13 @@
                 <div id="hbreadcrumb" class="pull-right m-t-lg">
                     <ol class="hbreadcrumb breadcrumb">
                         <li>
-                            <a >dashboard</a>
+                            <a [routerLink]="['/mural']"> <span>Home</span></a>
                         </li> 
                         <li>
-                            <a>Cadastros</a>
+                            <a [routerLink]="['/whisper']">  <span>Whisper</span></a>
                         </li>
                         <li class="active">
-                            <span>Chat</span>
+                            <a [routerLink]="['/chat']"> <span>Chat</span></a>
                         </li>
                     </ol>
                 </div>
@@ -145,7 +145,10 @@
                                 </div>
 
 
-                            </div>                    
+                            </div>    
+                            
+
+ 
 
                     </form>
 
