@@ -1,5 +1,5 @@
 {
-  "name": "grc",
+  "name": "chat",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -8,7 +8,8 @@
     "build-serve": "node --max_old_space_size=8048 ./node_modules/@angular/cli/bin/ng serve",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "deploy:ghdocs": "ng build --prod --output-path docs --base-href /chat/"
   },
   "private": true,
   "dependencies": {
@@ -52,6 +53,7 @@
     "speech-to-text": "^2.9.1",
     "summernote": "^0.8.18",
     "sweetalert2": "^10.15.7",
+    "symbol-observable": "^4.0.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.3"
   },

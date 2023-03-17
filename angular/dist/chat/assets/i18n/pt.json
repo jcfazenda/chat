@@ -1,0 +1,50 @@
+{    
+    "app": {
+        "title":        "Bem vindo"
+    },
+
+    "titulos": {
+        "chat":           ""
+    },
+    "labels": {
+
+        "Pesquisa":     "Pesauisa..."
+       
+
+    },
+    "botoes": {
+        
+        "anexar": "Anexar",
+        "btn_novo_item_questionario": "Criar Item de Questinário", 
+        "apontamentos":                         "Apontamentos",
+        "btn_criar_item":                               "Criar Item",
+        "btn_criar_topico":                               "Criar Tópico",
+        "btn_linhas_negocio": "Linhas de Negócio",
+        "btn_fatores_risco": "Fatores de Risco",
+        "btn_cadastar_tipo_controle": "Tipos de Controle",
+        "btn_cadastar_impacto": "Cadastar Impactos",
+        
+        "bt_criar_funcao":           "CRIAR FUNÇÃO",
+        "bt_configuracoes_nivel":           "CONFIGURAÇÔES DE NÍVEIS",
+        "bt_criar_nivel":           "CRIAR NIVEL",
+        "btn_editar":               "EDITAR",
+        "btn_novo":                 "NOVO", 
+        "btn_limpar":               "LIMPAR",
+        "btn_probalidade_impacto":  "PROBALIDADE | IMPACTO",
+        "btn_fechar":               "FECHAR",
+        "btn_confirma":             "CONFIRMAR",
+        "btn_cancelar":             "CANCELAR",
+        "btn_salvar":               "SALVAR",
+        "btn_cadastrar":            "CADASTAR",
+        "btn_voltar":               "VOLTAR",
+        "btn_adicionar":            "ADICIONAR",
+        "btn_deslogar":             "DESLOGAR DO SISTEMA",
+        "btn_tipos_normas":         "Tipos de Normas",
+        "btn_orgao_regulador":      "Órgaos Reguladores",
+        "trecho_adicionar":         "Adicionar Trecho"
+    }
+ 
+    
+}
+ 
+
