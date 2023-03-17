@@ -1,4 +1,3 @@
-/Users/jbarbozo/Downloads/Nakatom/chat/api/api/bin/Release/netcoreapp2.1/publish/app.yaml
 /Users/jbarbozo/Downloads/Nakatom/chat/api/api/bin/Release/netcoreapp2.1/publish/appsettings.Development.json
 /Users/jbarbozo/Downloads/Nakatom/chat/api/api/bin/Release/netcoreapp2.1/publish/appsettings.json
 /Users/jbarbozo/Downloads/Nakatom/chat/api/api/bin/Release/netcoreapp2.1/publish/Connected Services/CorreiosWcf/ConnectedService.json

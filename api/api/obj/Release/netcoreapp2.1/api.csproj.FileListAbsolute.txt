@@ -98,7 +98,6 @@ D:/projeto/freelancer/EGRC/Backend/api/api/obj/Release/netcoreapp2.1/api.genrunt
 /Users/jbarbozo/Downloads/Nakatom/chat/api/api/bin/Release/netcoreapp2.1/appsettings.Development.json
 /Users/jbarbozo/Downloads/Nakatom/chat/api/api/bin/Release/netcoreapp2.1/appsettings.json
 /Users/jbarbozo/Downloads/Nakatom/chat/api/api/bin/Release/netcoreapp2.1/Connected Services/CorreiosWcf/ConnectedService.json
-/Users/jbarbozo/Downloads/Nakatom/chat/api/api/bin/Release/netcoreapp2.1/app.yaml
 /Users/jbarbozo/Downloads/Nakatom/chat/api/api/bin/Release/netcoreapp2.1/api.deps.json
 /Users/jbarbozo/Downloads/Nakatom/chat/api/api/bin/Release/netcoreapp2.1/api.runtimeconfig.json
 /Users/jbarbozo/Downloads/Nakatom/chat/api/api/bin/Release/netcoreapp2.1/api.runtimeconfig.dev.json

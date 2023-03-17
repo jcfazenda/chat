@@ -46,11 +46,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="app.yaml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Remove="Controllers\Apontamentos\ApontamentoController.cs" />
     <Compile Remove="Controllers\UnidadesOrganizacionais\UnidadeOrganizacionalController.cs" />
     <Compile Remove="Controllers\Generics\ListGenericsInput.cs" />
